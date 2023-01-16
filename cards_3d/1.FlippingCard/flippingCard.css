@@ -1,0 +1,52 @@
+:root {
+  --shadow: 0px 1px 2.2px rgba(0, 0, 0, 0.2), 0px -1px 2.2px rgba(0, 0, 0, 0.2);
+}
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  width: 400px;
+}
+
+.card__content {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.card__front {
+  position: absolute;
+  background: pink;
+  transition: transform 2s ease-in-out;
+}
+
+.card:hover .card__front {
+  transform: rotateY(0.5turn);
+  transform-style: preserve-3d;
+}
+
+.card__title {
+  transform: translateZ(100px);
+}
+.card__subtitle {
+  transform: translateZ(1px);
+}
+
+.card__back {
+  position: absolute;
+  transform: rotateY(0.5turn);
+}
