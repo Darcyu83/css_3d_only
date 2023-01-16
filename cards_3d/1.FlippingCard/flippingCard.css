@@ -1,5 +1,10 @@
 :root {
   --shadow: 0px 1px 2.2px rgba(0, 0, 0, 0.2), 0px -1px 2.2px rgba(0, 0, 0, 0.2);
+  --layer-lv-1: translateZ(2rem);
+  --layer-lv-2: translateZ(4rem);
+  --layer-lv-3: translateZ(6rem);
+
+  --cardfront-spacer: 1em;
 }
 html {
   box-sizing: border-box;
@@ -20,33 +25,78 @@ body {
 }
 
 .card {
-  width: 400px;
+  height: 400px;
+  aspect-ratio: 2/3;
+}
+
+.card:hover .card__content {
+  transform: rotateY(0.5turn);
 }
 
 .card__content {
+  width: 100%;
+  height: 100%;
+  transition: transform 2s ease;
   position: relative;
   transform-style: preserve-3d;
 }
 
-.card__front {
+.card__front,
+.card__back {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  background: pink;
-  transition: transform 2s ease-in-out;
-}
-
-.card:hover .card__front {
-  transform: rotateY(0.5turn);
   transform-style: preserve-3d;
+  backface-visibility: hidden;
+  display: grid;
+  align-content: center;
 }
 
-.card__title {
-  transform: translateZ(100px);
+.card__front {
+  padding: calc(var(--cardfront-spacer) * 2);
+  background-image: url(https://images.unsplash.com/photo-1546636889-ba9fdd63583e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3RyZWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-color: #b7c9e5;
+  color: #333;
 }
-.card__subtitle {
-  transform: translateZ(1px);
+
+.card__front::before {
+  content: "";
+  position: absolute;
+  top: var(--cardfront-spacer);
+  bottom: var(--cardfront-spacer);
+  left: var(--cardfront-spacer);
+  right: var(--cardfront-spacer);
+  border: 3px solid currentColor;
+  transform: var(--layer-lv-1);
 }
 
 .card__back {
-  position: absolute;
+  background: #333;
+
+  color: #b7c9e5;
+
+  padding: var(--cardfront-spacer);
   transform: rotateY(0.5turn);
+}
+
+.card__title {
+  font-size: 3rem;
+  transform: var(--layer-lv-3);
+  order: 2;
+}
+
+.card__subtitle {
+  transform: var(--layer-lv-2);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.card__body {
+  font-size: 1.25rem;
+  transform: var(--layer-lv-2);
 }
