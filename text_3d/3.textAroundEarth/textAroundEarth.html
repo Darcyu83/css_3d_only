@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotating Text Around The Earth</title>
+  </head>
+  <link rel="stylesheet" href="./textAroundEarth.css" />
+
+  <body>
+    <section>
+      <div class="earth"></div>
+      <div id="circle" class="circle">
+        <span style="--i: 1">1</span><span style="--i: 2">2</span
+        ><span style="--i: 3">3</span><span style="--i: 4">4</span
+        ><span style="--i: 5">5</span><span style="--i: 6">A</span
+        ><span style="--i: 7">7</span><span style="--i: 8">8</span
+        ><span style="--i: 9">9</span><span style="--i: 10">10</span
+        ><span style="--i: 11">11</span><span style="--i: 12">12</span
+        ><span style="--i: 13">13</span><span style="--i: 14">14</span
+        ><span style="--i: 15">15</span><span style="--i: 16">16</span
+        ><span style="--i: 17">17</span><span style="--i: 18">18</span
+        ><span style="--i: 19">19</span><span style="--i: 20">20</span
+        ><span style="--i: 21">21</span><span style="--i: 22">22</span
+        ><span style="--i: 23">23</span><span style="--i: 24">24</span
+        ><span style="--i: 25">25</span><span style="--i: 26">26</span
+        ><span style="--i: 27">27</span><span style="--i: 28">28</span
+        ><span style="--i: 29">29</span><span style="--i: 30">30</span
+        ><span style="--i: 31">31</span><span style="--i: 32">32</span>
+      </div>
+    </section>
+
+    <script>
+      window.onload = {};
+
+      const span = document.createElement("span");
+      span.innerText = "innerText";
+
+      const circle = document.querySelector(".circle");
+
+      const text = "Rotating-Text-Around-The-Earth";
+      let html = "";
+      for (let i = 0; i < text.length; i++) {
+        html += `<span style="--i : ${i}; ">${text[i]}</span>`;
+      }
+      circle.innerHTML = html;
+    </script>
+  </body>
+</html>
