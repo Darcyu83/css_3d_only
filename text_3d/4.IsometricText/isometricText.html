@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./isometricText.css" />
+  </head>
+  <body>
+    <div class="text" data-text="CSS ISOMETRIC TEXT">CSS ISOMETRIC TEXT</div>
+
+    <script type="text/javascript">
+      let text = document.getElementsByClassName("text");
+
+      console.log("text === ", text);
+
+      let shadow = "";
+
+      for (let i = 0; i < 20; i++) {
+        shadow += `${shadow ? "," : ""} ${-i * 1}px  ${i * 1}px 0 #d9d9d9`;
+      }
+
+      text[0].style.textShadow = shadow;
+    </script>
+  </body>
+</html>
