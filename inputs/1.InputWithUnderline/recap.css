@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-size: 1rem;
+}
+body {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 250px;
+}
+
+.container label {
+  margin: 1rem 0 0.3rem;
+  position: relative;
+  width: 100%;
+}
+
+.container label input {
+  line-height: var(--font-size);
+  font-size: var(--font-size);
+  border: none;
+  outline: none;
+  z-index: 10;
+}
+
+.container label span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.container label input:focus ~ span,
+.container label input:not(:placeholder-shown) ~ span {
+  top: calc(var(--font-size) * -1);
+  font-size: calc(var(--font-size) / 1.5 * 0.8);
+}
+
+.container label i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: gray;
+}
+
+.container label i::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    darkblue,
+    purple
+  );
+
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: 250px;
+  }
+}

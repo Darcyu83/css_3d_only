@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+:root {
+  --font-size-big: 1.2rem;
+  --font-size-small: 0.8rem;
+}
+
+html {
+  font-size: calc(15px + 0.2vw);
+}
+body {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin: var(--font-size-small) 0 1rem;
+  padding: 0 0 0.3rem;
+  width: calc(1rem * 20);
+  position: relative;
+}
+
+.container input {
+  width: 100%;
+  height: 100%;
+  line-height: var(--font-size-big);
+  font-size: var(--font-size-big);
+  border: none;
+  outline: none;
+}
+
+.container span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: var(--font-size-big);
+  letter-spacing: 0.1rem;
+}
+.container input:not(:placeholder-shown) ~ span,
+.container input:focus ~ span {
+  top: calc(var(--font-size-big) * -1);
+  font-size: var(--font-size-small);
+  font-weight: 700;
+}
+
+.container i {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #b7c9e5;
+}
+
+/* .container input:not(:placeholder-shown) ~ i::before, */
+.container input:focus ~ i::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, cyan, rgb(168, 184, 168), cyan);
+  background-repeat: repeat-x;
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: calc(1rem * 20);
+  }
+}

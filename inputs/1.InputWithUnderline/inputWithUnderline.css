@@ -1,0 +1,97 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+label {
+  margin: 1rem 0px 5px;
+  position: relative;
+  min-width: 200px;
+  z-index: 10;
+}
+
+label input {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+label span {
+  position: absolute;
+  font-size: 1.5rem;
+  left: 0;
+  top: 0;
+
+  transition: all 0.5s;
+}
+
+/* label input:focus ~ span {
+
+} */
+
+label i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  transition: all 0.5s;
+  background: gray;
+}
+
+label i::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: -100%;
+  top: 0;
+  background: linear-gradient(90deg, crimson, yellow, skyblue, purple, crimson);
+  animation: lineAnimate 2s linear infinite;
+}
+
+@keyframes lineAnimate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 200px;
+  }
+}
+
+input:not(:placeholder-shown) ~ span,
+label input:focus ~ span {
+  top: -1.1rem;
+  font-size: 0.8rem;
+}
+
+input:not(:placeholder-shown) ~ i::before,
+label input:focus ~ i::before {
+  content: "";
+
+  left: 0;
+  top: 0;
+}
